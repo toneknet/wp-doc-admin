@@ -29,6 +29,27 @@ function custom_wp_toolbar_link( $wp_admin_bar ) {
   }
 }
 
+add_action('admin_menu', 'register_my_custom_submenu_page');
+
+function register_my_custom_submenu_page() {
+    add_submenu_page(
+        'tools.php',
+        'Submenu Page',
+        'WP Doc Admin',
+        'manage_options',
+        'wp-doc-admin-submenu-page',
+        'wp_doc_admin_page_content' );
+}
+
+function wp_doc_admin_page_content() {
+    echo '<div class="wrap">';
+        echo '<h2>Page Title</h2>';
+    echo '</div>';
+}
+
+
+
+
 //add_management_page( 'Custom Permalinks', 'Custom Permalinks', 'manage_options', 'my-unique-identifier', 'custom_permalinks_options_page' );
 
 
@@ -89,12 +110,9 @@ $arrDocAdminContent = array (
 $firstKey = array_key_first($arrDocAdminContent['pages']);
 
 
-$breadcrumb[] = array('url'=>'home','title'=>$arrDocAdminContent['title']); //"<a href=\"javascript:wp_doc_admin_goto('home');\">" . $arrDocAdminContent['title'] . "</a> &gt";
-
-/*var_dump($firstKey);*/
-
-$firstpage = $arrDocAdminContent['pages'][$firstKey]; //['text'];
-$breadcrumb[] = array('url'=>$firstKey,'title'=>$firstKey);//"<a href=\"javascript:wp_doc_admin_goto('". $firstKey; ."');\">" . $firstKey; . "</a> &gt";
+$breadcrumb[] = array('url'=>'home','title'=>$arrDocAdminContent['title']);
+$firstpage = $arrDocAdminContent['pages'][$firstKey];
+$breadcrumb[] = array('url'=>$firstKey,'title'=>$firstKey);
 ?>
 <script>
  var wp_doc_admin_data = '<?php print json_encode($arrDocAdminContent); ?>';
@@ -137,15 +155,14 @@ $breadcrumb[] = array('url'=>$firstKey,'title'=>$firstKey);//"<a href=\"javascri
             }
             print substr($strBreadcrumb,0,-4);
           ?>
-
         </div>
         <div id="wp-doc-admin-content">
           <?php print $firstpage['text'];?>
         </div>
       </div>
     </div>
-    <div class="wp-doc-admin-modal-footer">
-      Powered by <strong>WP Doc Admin</strong>
+    <div class="wp-doc-admin-footer">
+      Powered by <a href="https://www.tonek.se" target="_blank"><strong>WP Doc Admin</strong></a>
       <span>v.<?php print get_file_data( ABSPATH .'wp-content/plugins/wp-doc-admin/wp-doc-admin.php', array('Version'), 'plugin')[0]; ?></span>
     </div>
   </div>
