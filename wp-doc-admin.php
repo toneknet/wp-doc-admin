@@ -90,7 +90,7 @@ $arrDocAdminContent = array (
     ),
     'Tea' => array(
       //'title'     => 'Tea',
-      'text'      => 'Some text here Tea',
+      'text'      => 'Some text here Tea<p>Test</p><hr /><p>Test</p><hr /><p>Test</p><hr /><p>Test</p><hr /><p>Test</p><hr /><p>Test</p><hr /><p>Test</p><hr /><p>Test</p><hr /><p>Test</p><hr /><p>Test</p><hr /><p>Test</p><hr /><p>Test</p><hr /><p>Test</p><hr /><p>Test</p><hr /><p>Test</p><hr /><p>Test</p><hr /><p>Test</p><hr /><p>Test</p><hr /><p>Test</p><hr /><p>Test</p><hr /><p>Test</p><hr /><p>Test</p><hr /><p>Test</p><hr /><p>Test</p><hr /><p>Test</p><hr /><p>Test</p><hr /><p>Test</p><hr /><p>Test</p><hr /><p>Test</p><hr /><p>Test</p><hr /><p>Test</p><hr /><p>Test</p><hr /><p>Test</p><hr /><p>Test</p><hr />',
       'Black' => array (
         //'title'     => 'Black tea',
         'text'    => 'Sub text Black tea'
@@ -160,10 +160,10 @@ $breadcrumb[] = array('url'=>$firstKey,'title'=>$firstKey);
           <?php print $firstpage['text'];?>
         </div>
       </div>
-    </div>
-    <div class="wp-doc-admin-footer">
-      Powered by <a href="https://www.tonek.se" target="_blank"><strong>WP Doc Admin</strong></a>
-      <span>v.<?php print get_file_data( ABSPATH .'wp-content/plugins/wp-doc-admin/wp-doc-admin.php', array('Version'), 'plugin')[0]; ?></span>
+      <div class="wp-doc-admin-footer">
+        Powered by <a href="https://www.tonek.se" target="_blank"><strong>WP Doc Admin</strong></a>
+        <span>v.<?php print get_file_data( ABSPATH .'wp-content/plugins/wp-doc-admin/wp-doc-admin.php', array('Version'), 'plugin')[0]; ?></span>
+      </div>
     </div>
   </div>
 </div>
